@@ -5,13 +5,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 export class App extends React.Component {
     state = {
-        content: [
-            { "id": "1", "title": "title 1" },
-            { "id": "2", "title": "title 2" }
-        ]
-    }
-    actions = {
-        setState: (state, callback) => this.setState(state, callback)
+        content: []
     }
     render() {
         const state = this.state;
@@ -19,7 +13,7 @@ export class App extends React.Component {
         return (
             <div className="wrap">
                 <div className="container">
-                    <Board content={state.content} />
+                    <Board />
                 </div>
             </div>
         )
