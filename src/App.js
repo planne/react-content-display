@@ -2,17 +2,13 @@ import React from 'react';
 import { Board } from './components/Board';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './style.css'
 
 export class App extends React.Component {
-    state = {
-        content: []
-    }
     render() {
-        const state = this.state;
-
         return (
             <div className="wrap">
-                <div className="container">
+                <div className="container-fluid">
                     <Board />
                 </div>
             </div>

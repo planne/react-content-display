@@ -23,7 +23,7 @@ export class Board extends React.Component {
     const { posts } = this.state;
 
     return (
-      <div className="">
+      <div className="row">
         {posts.map(item => {
           return <Box key={item.id} content={item}></Box>
         })}
