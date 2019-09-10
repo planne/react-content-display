@@ -1,17 +1,21 @@
 import React from 'react';
 import { Box } from './Box';
+import { Loader } from './Loader';
 
 import Strapi from 'strapi-sdk-javascript/build/main';
 const strapi = new Strapi('http://localhost:1337');
 
 export class Board extends React.Component {
   state = {
-    posts: []
+    posts: [],
+    loading: false
   }
 
   async componentDidMount() {
+    this.setState({ loading: true });
     try {
       const posts = await strapi.getEntries('articles');
+      this.setState({ loading: false });
       this.setState({ posts });
     }
     catch (err) {
@@ -20,7 +24,11 @@ export class Board extends React.Component {
   }
 
   render() {
-    const { posts } = this.state;
+    const { posts, loading } = this.state;
+
+    if (loading) {
+      return <Loader />
+    }
 
     return (
       <div className="row">
