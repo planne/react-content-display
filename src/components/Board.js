@@ -3,7 +3,9 @@ import { Box } from './Box';
 import { Loader } from './Loader';
 
 import Strapi from 'strapi-sdk-javascript/build/main';
-const strapi = new Strapi('http://localhost:1337');
+
+const strapiLocalhost = 'http://localhost:1337';
+const strapi = new Strapi(strapiLocalhost);
 
 export class Board extends React.Component {
   state = {
@@ -33,7 +35,7 @@ export class Board extends React.Component {
     return (
       <div className="row">
         {posts.map(item => {
-          return <Box key={item.id} content={item}></Box>
+          return <Box key={item.id} content={item} imageUrl={`${strapiLocalhost}${item.thumbnail.url}`}></Box>
         })}
       </div>
     );
